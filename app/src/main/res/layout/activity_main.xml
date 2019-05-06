@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@+id/fragment_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_gravity="center|bottom"
+        android:layout_width="match_parent"
+        android:background="#eeeeee"
+        android:clipChildren="false"
+        android:layout_height="140px"
+        android:gravity="bottom|center">
+
+        <LinearLayout
+            android:id="@+id/rv_main"
+            android:clipChildren="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_main"
+                android:layout_width="60px"
+                android:layout_height="60px"
+                android:background="@drawable/selector_tabbar_main"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="主页"
+                android:textSize="30px"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:clipChildren="false"
+            android:id="@+id/rv_find"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_find"
+                android:layout_width="60px"
+                android:layout_height="60px"
+                android:background="@drawable/selector_tabbar_find"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发现"
+                android:textSize="30px"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:clipChildren="false"
+            android:id="@+id/rv_post"
+            android:layout_width="match_parent"
+            android:layout_height="140px"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="bottom">
+
+            <ImageView
+                android:id="@+id/iv_post"
+                android:layout_width="60px"
+                android:layout_height="60px"
+                android:background="@mipmap/tabbar_post" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="发帖"
+                android:textSize="30px"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:clipChildren="false"
+            android:id="@+id/rv_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_message"
+                android:layout_width="60px"
+                android:layout_height="60px"
+                android:background="@drawable/selector_tabbar_message"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消息"
+                android:textSize="30px"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:clipChildren="false"
+            android:id="@+id/rv_mine"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/iv_mine"
+                android:layout_width="60px"
+                android:layout_height="60px"
+                android:background="@drawable/selector_tabbar_mine"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="消息"
+                android:textSize="30px"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
