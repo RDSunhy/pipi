@@ -1,6 +1,7 @@
 package com.study.shy.pipi.util;
 
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.blankj.utilcode.constant.TimeConstants;
 
@@ -1430,5 +1431,22 @@ public final class TimeUtils {
             }
         }
         return sb.toString();
+    }
+
+    public static Date getSubtractDay(int distanceDay){
+
+        SimpleDateFormat dft = new SimpleDateFormat("yyyy-MM-dd");
+        Date beginDate = new Date();
+        Calendar date = Calendar.getInstance();
+        date.setTime(beginDate);
+        date.set(Calendar.DATE, date.get(Calendar.DATE) - distanceDay);
+        Date endDate = null;
+        try {
+            endDate = dft.parse(dft.format(date.getTime()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Log.d("获取前"+distanceDay+"天时间","" + dft.format(endDate));
+        return endDate;
     }
 }

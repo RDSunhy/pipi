@@ -47,13 +47,14 @@
         android:layout_width="match_parent"
         android:layout_height="120px"
         android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:gravity="center">
 
-        <ImageView
+        <com.study.shy.pipi.ui.view.LikeView
             android:id="@+id/iv_like"
             android:layout_width="57px"
             android:layout_height="57px"
             android:layout_marginLeft="30px"
+            android:layout_marginBottom="6px"
             android:scaleType="fitCenter"
             android:background="@mipmap/img_like"/>
         <TextView
@@ -90,6 +91,7 @@
             android:textSize="38px"
             android:textColor="#a6a6a6"
             android:layout_marginLeft="9px"
+            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
@@ -103,6 +105,7 @@
             android:text="1000"
             android:textSize="38px"
             android:layout_marginLeft="9px"
+            android:layout_marginRight="9px"
             android:textColor="#a6a6a6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

@@ -43,11 +43,15 @@ public class MainFragment extends BaseFragment {
         fragmentList = new ArrayList<>();
         fragmentList.add(new DailyFragment());
         fragmentList.add(new AdFragment());
+        fragmentList.add(new DailyFragment());
+        fragmentList.add(new AdFragment());
         FragmentAdapter adapter = new FragmentAdapter(getFragmentManager(),fragmentList);
         vpFragment.setAdapter(adapter);
         tabLayout.setupWithViewPager(vpFragment);
         tabLayout.getTabAt(0).setText("推荐");
         tabLayout.getTabAt(1).setText("广告");
+        tabLayout.getTabAt(2).setText("推荐2");
+        tabLayout.getTabAt(3).setText("广告2");
     }
 
     @Override
