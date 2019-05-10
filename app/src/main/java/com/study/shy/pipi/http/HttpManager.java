@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.Build;
 
 import com.study.shy.pipi.bean.CategoryBean;
+import com.study.shy.pipi.bean.CategoryContext;
+import com.study.shy.pipi.bean.CategoryInfo;
 import com.study.shy.pipi.bean.HotBean;
 
 import java.io.IOException;
@@ -72,5 +74,13 @@ public class HttpManager {
 
     public Observable<CategoryBean> getCategories(){
         return serviceApi.getCategories();
+    }
+
+    public Observable<CategoryInfo> getCategoryInfo(Map<String,String> map){
+        return serviceApi.getCategoryInfo(map);
+    }
+
+    public Observable<CategoryContext> getCategoryContext(Map<String,String> map){
+        return serviceApi.getCategoryContext(map);
     }
 }

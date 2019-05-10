@@ -1,9 +1,11 @@
 package com.study.shy.pipi.ui.mainfragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.study.shy.pipi.R;
 import com.study.shy.pipi.bean.CategoryBean;
+import com.study.shy.pipi.ui.category.CategoryActivity;
+import com.zhy.autolayout.utils.AutoUtils;
 
 import java.util.List;
 
@@ -38,6 +42,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.rv_item_category, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(view);
+        AutoUtils.autoSize(view);
         return viewHolder;
     }
 
@@ -61,11 +66,22 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     540);//两个400分别为添加图片的大小
             viewHolder.ivBg.setLayoutParams(ivParams);
+            viewHolder.setIsRecyclable(false);
         }
         Glide.with(mContext)
                 .load(mList.get(i).getData().getImage())
                 .into(viewHolder.ivBg);
         viewHolder.tvCategory.setText(""+mList.get(i).getData().getTitle());
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,CategoryActivity.class);
+                //Log.e("传出去的ID",""+mList.get(i).getData().getId());
+                intent.putExtra("CategotyId",""+mList.get(i).getData().getId());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override

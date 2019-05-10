@@ -65,7 +65,7 @@
             android:layout_marginLeft="9px"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-        <ImageView
+        <com.study.shy.pipi.ui.view.UnLikeView
             android:id="@+id/iv_unlike"
             android:layout_width="57px"
             android:layout_height="57px"

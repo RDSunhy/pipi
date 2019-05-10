@@ -67,4 +67,5 @@ public class MainFragment extends BaseFragment {
     @OnClick(R.id.fbn_refresh)
     public void onViewClicked() {
     }
+
 }

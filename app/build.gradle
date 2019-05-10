@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
 
 android {
     compileSdkVersion 28
@@ -22,6 +23,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+MobSDK {
+    appKey "2b1187972912c"
+    appSecret "97a3a321984dce48854fcb515f30c32c"
+
+    ShareSDK {
+        //平台配置信息
+        devInfo {
+            QQ {
+                appId "101578306"
+                appKey "e6d38ea481a30e548aebc52eba00fb99"
+                shareByAppClient true
+            }
+        }
+    }
+
 }
 
 repositories {

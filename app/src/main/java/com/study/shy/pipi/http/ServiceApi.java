@@ -1,6 +1,8 @@
 package com.study.shy.pipi.http;
 
 import com.study.shy.pipi.bean.CategoryBean;
+import com.study.shy.pipi.bean.CategoryContext;
+import com.study.shy.pipi.bean.CategoryInfo;
 import com.study.shy.pipi.bean.HotBean;
 
 import java.util.List;
@@ -16,7 +18,16 @@ public interface ServiceApi {
     @GET("/api/v2/feed")
     Observable<HotBean> getDaily(@QueryMap Map<String,String> map);
     /**获取分类**/
-    /**http://baobab.kaiyanapp.com/api/v4/categories/**/
+    /**http://baobab.kaiyanapp.com/api/v4/categories/all**/
     @GET("/api/v4/categories/all")
     Observable<CategoryBean> getCategories();
+    /**分类详情**/
+    /**http://baobab.kaiyanapp.com/api/v4/categories/**/
+    @GET("/api/v4/categories/detail/tab")
+    Observable<CategoryInfo> getCategoryInfo(@QueryMap Map<String,String> map);
+    /**分类视频**/
+    /**http://baobab.kaiyanapp.com/api/v1/tag/videos?id=16**/
+    /**start=20&num=10**/
+    @GET("/api/v1/tag/videos")
+    Observable<CategoryContext> getCategoryContext(@QueryMap Map<String,String> map);
 }

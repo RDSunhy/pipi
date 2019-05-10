@@ -18,6 +18,8 @@ import com.study.shy.pipi.ui.mainfragment.MineFragment;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.jzvd.Jzvd;
+import cn.jzvd.JzvdStd;
 
 public class MainActivity extends BaseActivity {
 
@@ -161,5 +163,19 @@ public class MainActivity extends BaseActivity {
         if (mineFragment != null) {
             transaction.hide(mineFragment);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(Jzvd.backPress()){
+            return;
+        }
+        super.onBackPressed();
+    }
+
+    @Override
+    protected void onPause() {
+        Jzvd.releaseAllVideos();
+        super.onPause();
     }
 }
