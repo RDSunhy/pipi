@@ -93,7 +93,24 @@ public class DailyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 .into(viewHolder.ivUserIcon);
         /**是否点过赞 后期加入数据库**/
-        /**点赞 踩 动画**/
+        /**点赞 踩 只能一个**/
+        viewHolder.ivLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewHolder.ivUnlike.getSelect()){
+                    viewHolder.ivUnlike.setSelect(false);
+                }
+            }
+        });
+        viewHolder.ivUnlike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(viewHolder.ivLike.getSelect()){
+                    viewHolder.ivLike.setSelect(false);
+                }
+            }
+        });
+
     }
 
     private void initPlayer(ViewHolder viewHolder, int i) {

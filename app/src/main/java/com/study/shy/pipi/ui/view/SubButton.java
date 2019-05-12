@@ -1,53 +1,44 @@
 package com.study.shy.pipi.ui.view;
 
-import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.study.shy.pipi.R;
 
-public class UnLikeView extends android.support.v7.widget.AppCompatImageView {
+@SuppressLint("AppCompatCustomView")
+public class SubButton extends Button {
 
-    private boolean isSelect = false;
-    private Context mContext;
-    private ObjectAnimator objectAnimator;
+    public boolean isSubscibe = false;
 
-    public UnLikeView(Context context) {
+    public SubButton(Context context) {
         super(context);
-        mContext = context;
     }
 
-    public UnLikeView(Context context, @Nullable AttributeSet attrs) {
+    public SubButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        mContext = context;
     }
 
-    public UnLikeView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SubButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mContext = context;
     }
 
     public void setSelect(boolean select) {
-        isSelect = select;
-        if (isSelect){
-            setBackgroundResource(R.mipmap.img_unlike_h);
+        isSubscibe = select;
+        if (isSubscibe){
+            setText("已订阅");
         }else{
-            setBackgroundResource(R.mipmap.img_unlike);
+            setText("订阅");
         }
     }
     public boolean getSelect() {
-        return isSelect;
+        return isSubscibe;
     }
-
-    @Override
-    public void setAnimation(Animation animation) {
-        super.setAnimation(animation);
-    }
-
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         /**
@@ -59,14 +50,14 @@ public class UnLikeView extends android.support.v7.widget.AppCompatImageView {
          * */
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
-                if (isSelect){
-                    setBackgroundResource(R.mipmap.img_unlike);
+                if (isSubscibe){
+                    setText("订阅");
+                    ToastUtils.showShort("已取消订阅此内容！");
                 }else{
-                    setBackgroundResource(R.mipmap.img_unlike_h);
-                    Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.iv_like_large);
-                    this.startAnimation(animation);
+                    setText("已订阅");
+                    ToastUtils.showShort("订阅成功！");
                 }
-                isSelect = !isSelect;
+                isSubscibe = !isSubscibe;
                 break;
             case MotionEvent.ACTION_MOVE:
                 break;
@@ -75,5 +66,4 @@ public class UnLikeView extends android.support.v7.widget.AppCompatImageView {
         }
         return super.onTouchEvent(event);
     }
-
 }

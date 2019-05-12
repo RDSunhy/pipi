@@ -78,7 +78,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,CategoryActivity.class);
                 //Log.e("传出去的ID",""+mList.get(i).getData().getId());
-                intent.putExtra("CategotyId",""+mList.get(i).getData().getId());
+                intent.putExtra("CategoryId",""+mList.get(i).getData().getId());
+                intent.putExtra("CategoryName",""+mList.get(i).getData().getTitle());
                 mContext.startActivity(intent);
             }
         });

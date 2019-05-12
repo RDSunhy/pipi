@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.zhy.autolayout.AutoLayoutActivity;
 
+import org.greenrobot.eventbus.EventBus;
+
 import butterknife.ButterKnife;
 import butterknife.compiler.ButterKnifeProcessor;
 
@@ -43,6 +45,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //EventBus.getDefault().register(this);
         ActivityCollector.addActivity(this);
         intentFilter = new IntentFilter();
         networkStateReceiver = new NetworkStateReceiver();
@@ -69,6 +72,9 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     protected void onDestroy() {
         super.onDestroy();
         ActivityCollector.removeActivity(this);
+        /*if(EventBus.getDefault().isRegistered(this)){
+            EventBus.getDefault().unregister(this);
+        }*/
     }
 
     @Override

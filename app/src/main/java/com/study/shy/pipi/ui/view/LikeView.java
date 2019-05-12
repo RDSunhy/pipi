@@ -45,6 +45,9 @@ public class LikeView extends android.support.v7.widget.AppCompatImageView {
             setBackgroundResource(R.mipmap.img_like);
         }
     }
+    public boolean getSelect() {
+        return isSelect;
+    }
 
     @Override
     public void setAnimation(Animation animation) {

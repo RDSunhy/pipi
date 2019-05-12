@@ -24,4 +24,9 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return mList.size();
     }
+
+    public void updateData(List<Fragment> mList){
+       this.mList = mList;
+       notifyDataSetChanged();
+    }
 }

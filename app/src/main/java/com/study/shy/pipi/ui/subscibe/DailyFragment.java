@@ -49,7 +49,7 @@ public class DailyFragment extends BaseFragment {
         String timeStamp = String.valueOf(TimeUtils.getNowMills());
         //Log.e("当前时间戳",""+timeStamp);
         Map<String,String> map = new HashMap<>();
-        map.put("date","1556467200000");
+        map.put("date",timeStamp);
         HttpManager.getInstance().getDaily(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

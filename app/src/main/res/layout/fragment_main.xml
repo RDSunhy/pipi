@@ -29,17 +29,4 @@
 
     </android.support.v4.view.ViewPager>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fbn_refresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:elevation="15px"
-        android:layout_margin="90px"
-        app:backgroundTint="#fff"
-        app:borderWidth="0dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:src="@mipmap/img_refresh"
-        app:useCompatPadding="true"
-        android:scaleType="center"/>
 </com.zhy.autolayout.AutoRelativeLayout>

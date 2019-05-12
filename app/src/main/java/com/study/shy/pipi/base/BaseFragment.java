@@ -16,6 +16,8 @@ public abstract class BaseFragment  extends Fragment implements View.OnClickList
 
     protected Context mContext;
     Unbinder unbinder;
+    String categoryName;
+    String categoryId;
     /**
      * 当fragment与activity发生关联时调用
      *
@@ -67,5 +69,17 @@ public abstract class BaseFragment  extends Fragment implements View.OnClickList
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    public void setCategoryInfo(String categoryName,String categoryId){
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+    }
+
+    public String getCategoryName(){
+        return categoryName;
+    }
+    public String getCategoryId(){
+        return categoryId;
     }
 }

@@ -30,6 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.jzvd.Jzvd;
 import cn.jzvd.JzvdStd;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 public class CategoryContextAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -90,7 +91,43 @@ public class CategoryContextAdapter extends RecyclerView.Adapter<RecyclerView.Vi
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 .into(viewHolder.ivUserIcon);
         /**是否点过赞 后期加入数据库**/
-        /**点赞 踩 动画**/
+
+        /**分享*/
+        viewHolder.ivShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showShare(i);
+            }
+        });
+    }
+
+    private void showShare(int i) {
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+
+        /**
+         * 这四个必须都设置 才能分享成功
+         * setTitle
+         * setTitleUrl
+         * setText
+         * setImageUrl
+         */
+        // title标题，微信、QQ和QQ空间等平台使用
+        oks.setTitle("来自shypipi");
+        // titleUrl QQ和QQ空间跳转链接
+        oks.setTitleUrl(mList.get(i).getData().getContent().getData().getPlayUrl());
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText(mList.get(i).getData().getContent().getData().getTitle());
+        // imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+        oks.setImageUrl(mList.get(i).getData().getContent().getData().getCover().getFeed());//确保SDcard下面存在此张图片
+
+        // url在微信、微博，Facebook等平台中使用
+        //oks.setUrl("http://sharesdk.cn");
+        // comment是我对这条分享的评论，仅在人人网使用
+        //oks.setComment("我是测试评论文本");
+        // 启动分享GUI
+        oks.show(mContext);
     }
 
     private void initPlayer(CategoryContextAdapter.ViewHolder viewHolder, int i) {

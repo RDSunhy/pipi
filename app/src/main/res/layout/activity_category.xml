@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/iv_head_bg"
             android:layout_width="match_parent"
-            android:layout_height="540px"
+            android:layout_height="480px"
             android:background="#eeeeee"
             android:scaleType="fitXY"/>
 
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="分类"
-            android:layout_marginTop="150px"
+            android:layout_marginTop="90px"
             android:layout_marginBottom="30px"
             android:textSize="90px"
             android:textStyle="bold"
@@ -35,6 +35,18 @@
             android:layout_below="@+id/tv_head_title"
             android:text="21323123123213"
             android:layout_centerHorizontal="true"
+            android:textSize="40px"
+            android:textStyle="bold"
+            android:textColor="#fff"/>
+        <com.study.shy.pipi.ui.view.SubButton
+            android:id="@+id/bn_subscibe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_head_text"
+            android:text="订阅"
+            android:background="@drawable/bn_bg_round"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30px"
             android:textSize="40px"
             android:textStyle="bold"
             android:textColor="#fff"/>
