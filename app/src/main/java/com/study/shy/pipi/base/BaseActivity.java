@@ -18,6 +18,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.study.shy.pipi.R;
+import com.study.shy.pipi.util.LoadingDialog;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import org.greenrobot.eventbus.EventBus;
@@ -41,13 +43,15 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     protected final String TAG = this.getClass().getSimpleName();
     private IntentFilter intentFilter;
     private NetworkStateReceiver networkStateReceiver;
-
+    /**加载动画**/
+    LoadingDialog loadingDialog;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //EventBus.getDefault().register(this);
         ActivityCollector.addActivity(this);
         intentFilter = new IntentFilter();
+        loadingDialog = new LoadingDialog(this,R.style.ConfigDialog);
         networkStateReceiver = new NetworkStateReceiver();
         if(!isshowtitle){
             //supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -107,6 +111,18 @@ public abstract class BaseActivity extends AutoLayoutActivity {
      */
     public abstract void initData();
 
+    /**
+     * 加载动画
+     */
+    public void showLoading() {
+        loadingDialog.show();
+    }
+    /**
+     * 关闭动画
+     */
+    public void dismissLoading() {
+        loadingDialog.dismiss();
+    }
     /**
      * 是否设置标题栏
      *

@@ -110,7 +110,40 @@ public class DailyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 }
             }
         });
-
+        /**单击文本 对应赞或者踩或者转发**/
+        viewHolder.tvLikeNum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewHolder.ivLike.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        viewHolder.ivLike.performClick();
+                    }
+                });
+            }
+        });
+        viewHolder.tvUnlikeNum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewHolder.ivUnlike.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        viewHolder.ivLike.performClick();
+                    }
+                });
+            }
+        });
+        viewHolder.tvShareNum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewHolder.ivShare.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        viewHolder.ivLike.performClick();
+                    }
+                });
+            }
+        });
     }
 
     private void initPlayer(ViewHolder viewHolder, int i) {

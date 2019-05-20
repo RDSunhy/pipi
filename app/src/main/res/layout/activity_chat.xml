@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:background="#eeeeee"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/tv_username"
+            android:text="name"
+            android:textColor="#000"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:background="#eeeeee"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_msg"
+            android:background="@drawable/et_bg_round"
+            android:layout_width="0px"
+            android:layout_height="100px"
+            android:layout_marginRight="30px"
+            android:layout_marginLeft="30px"
+            android:paddingLeft="10px"
+            android:paddingRight="10px"
+            android:layout_weight="1"/>
+
+        <Button
+            android:id="@+id/bn_video_call"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_marginRight="30px"
+            android:background="@mipmap/img_video_call"/>
+
+        <Button
+            android:id="@+id/bn_send"
+            android:layout_width="120px"
+            android:layout_height="120px"
+            android:layout_marginRight="30px"
+            android:background="@mipmap/img_msg_send"/>
+
+    </LinearLayout>
+
+</com.zhy.autolayout.AutoLinearLayout>

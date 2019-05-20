@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f9d7"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.login.LoginActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="个人学习，接口来自于网络"
+        android:textColor="#b4b4b4"
+        android:gravity="center"
+        android:layout_marginBottom="90px"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/img_home_guide_login" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120px"
+        android:background="@mipmap/img_get_fish" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <View
+            android:layout_width="200px"
+            android:layout_height="2px"
+            android:background="#b4b4b4"/>
+
+        <ImageView
+            android:id="@+id/iv_login_qq"
+            android:layout_width="90px"
+            android:layout_height="90px"
+            android:layout_margin="20px"
+            android:background="@mipmap/img_login_qq" />
+        <ImageView
+            android:id="@+id/iv_login_wechat"
+            android:layout_width="75px"
+            android:layout_height="75px"
+            android:layout_margin="20px"
+            android:background="@mipmap/img_login_wechat" />
+
+        <View
+            android:layout_width="200px"
+            android:layout_height="2px"
+            android:background="#b4b4b4"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="支持第三方登录"
+        android:textColor="#b4b4b4"
+        android:gravity="center"/>
+</LinearLayout>

@@ -1,17 +1,9 @@
 package com.study.shy.pipi.http;
 
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.os.Build;
 
-import com.study.shy.pipi.bean.CategoryBean;
-import com.study.shy.pipi.bean.CategoryContext;
-import com.study.shy.pipi.bean.CategoryInfo;
-import com.study.shy.pipi.bean.HotBean;
-
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Interceptor;
@@ -21,25 +13,16 @@ import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Observable;
 
-public class HttpManager {
+public class HttpHelper {
 
-    String baseUrl = "http://baobab.kaiyanapp.com";
-    private static HttpManager mInstance;
+    private static HttpHelper mInstance;
 
-    public HttpManager(){
-    }
-
-    public HttpManager(String baseUrl){
-        this.baseUrl = baseUrl;
-    }
-
-    public static HttpManager getInstance() {
+    public static HttpHelper getInstance() {
         if (mInstance == null) {
-            synchronized (HttpManager.class) {
+            synchronized (HttpHelper.class) {
                 if (mInstance == null) {
-                    mInstance = new HttpManager();
+                    mInstance = new HttpHelper();
                 }
             }
         }
@@ -47,17 +30,6 @@ public class HttpManager {
         return mInstance;
     }
 
-    public static HttpManager getInstance(String baseUrl) {
-        if (mInstance == null) {
-            synchronized (HttpManager.class) {
-                if (mInstance == null) {
-                    mInstance = new HttpManager(baseUrl);
-                }
-            }
-        }
-
-        return mInstance;
-    }
 
     OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .addInterceptor(new Interceptor() {
@@ -79,7 +51,7 @@ public class HttpManager {
             .build();
 
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl(baseUrl)//基地址
+            .baseUrl("http://a1.easemob.com/")//基地址
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
@@ -89,21 +61,5 @@ public class HttpManager {
 
     public ServiceApi getServiceApi(){
         return retrofit.create(ServiceApi.class);
-    }
-
-    public Observable<HotBean> getDaily(Map<String,String> map){
-        return serviceApi.getDaily(map);
-    }
-
-    public Observable<CategoryBean> getCategories(){
-        return serviceApi.getCategories();
-    }
-
-    public Observable<CategoryInfo> getCategoryInfo(Map<String,String> map){
-        return serviceApi.getCategoryInfo(map);
-    }
-
-    public Observable<CategoryContext> getCategoryContext(Map<String,String> map){
-        return serviceApi.getCategoryContext(map);
     }
 }

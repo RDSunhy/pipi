@@ -4,15 +4,31 @@ import com.study.shy.pipi.bean.CategoryBean;
 import com.study.shy.pipi.bean.CategoryContext;
 import com.study.shy.pipi.bean.CategoryInfo;
 import com.study.shy.pipi.bean.HotBean;
+import com.study.shy.pipi.bean.SaveResult;
 
 import java.util.List;
 import java.util.Map;
 
+import retrofit2.Response;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
 import rx.Observable;
 
 public interface ServiceApi {
+
+    /**环信注册**/
+    /**http://a1.easemob.com/1102190517019891/pipi/users**/
+    @POST("/1102190517019891/pipi/users")
+    Observable<Response> register(@QueryMap Map<String,String> map);
+    /**存储 查询 两个接口**/
+    /**存储**/
+    @GET("/ucache/put")
+    Observable<SaveResult> saveData(@QueryMap Map<String,String> map);
+    /**查询**/
+    @GET("/ucache/get")
+    Observable<SaveResult> queryData(@QueryMap Map<String,String> map);
+    /********************视频接口******************/
     /**获取当日精选视频**/
     /**http://baobab.kaiyanapp.com/api/v2/feed?date=1557018000000&num=1**/
     @GET("/api/v2/feed")
