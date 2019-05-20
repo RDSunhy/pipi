@@ -104,13 +104,14 @@ public class AddFriend extends Dialog {
             bnAdd.setOnClickListener(view -> {
                 String username = etUserName.getText().toString();
                 String reason = etReason.getText().toString();
-                ToastUtils.showShort(""+username+"|"+reason);
+                //ToastUtils.showShort(""+username+"|"+reason);
                 mDialog.dismiss();
                 //参数为要添加的好友的username和添加理由
                 try {
                     EMClient.getInstance().contactManager().addContact(username, reason);
                 } catch (HyphenateException e) {
                     e.printStackTrace();
+                    ToastUtils.showShort("添加好友失败！");
                     Log.e("添加好友失败",""+e.getDescription()+"|"+e.getErrorCode());
                 }
             });

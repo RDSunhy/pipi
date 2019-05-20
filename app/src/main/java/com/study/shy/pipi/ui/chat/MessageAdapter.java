@@ -61,7 +61,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        Log.e("onBind",""+mList.get(i).toString());
+        //Log.e("onBind",""+mList.get(i).toString());
         String msg = mList.get(i).getBody().toString();
         if(viewHolder instanceof ReceiveViewHolder){
             ((ReceiveViewHolder) viewHolder).tvTalkContent.setText(msg.substring(5,msg.length()-1));
@@ -76,7 +76,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
     public void addMsg(EMMessage message){
-        Log.e("调用addMsg",""+message.toString());
+        //Log.e("调用addMsg",""+message.toString());
         mList.add(message);
         notifyDataSetChanged();
     }

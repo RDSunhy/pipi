@@ -36,7 +36,7 @@ public class MessageFragment extends BaseFragment {
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case 1:
-                    Log.e("获取的好友列表",""+friendList.toString());
+                    //Log.e("获取的好友列表",""+friendList.toString());
                     FriendListAdapter adapter = new FriendListAdapter(getContext(),friendList);
                     LinearLayoutManager manager = new LinearLayoutManager(getContext());
                     rvFriend.setLayoutManager(manager);
@@ -59,6 +59,10 @@ public class MessageFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        refreshFriendList();
+    }
+
+    public void refreshFriendList() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -74,27 +78,20 @@ public class MessageFragment extends BaseFragment {
                 }
             }
         }).start();
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    friendList = EMClient.getInstance().contactManager().getAllContactsFromServer();
-                    Message message = new Message();
-                    message.what = 1;
-                    handler.sendMessage(message);
-                } catch (HyphenateException e) {
-                    e.printStackTrace();
-                    Log.e("获取好友列表失败",e.getErrorCode()+"|"+e.getDescription());
-                    ToastUtils.showShort("获取好友列表失败！");
-                }
-            }
-        }).start();
+        refreshFriendList();
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if(!hidden){
+            refreshFriendList();
+        }
     }
 
     @Override

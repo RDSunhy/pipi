@@ -271,8 +271,6 @@ public class MainActivity extends BaseActivity {
     }
 
 
-
-
     @Override
     public void onBackPressed() {
         if(Jzvd.backPress()){
@@ -311,20 +309,17 @@ public class MainActivity extends BaseActivity {
                     case R.id.bn_agree:
                         try {
                             EMClient.getInstance().contactManager().acceptInvitation(username);
-                            ToastUtils.showShort("添加成功");
+                            messageFragment.refreshFriendList();
                         } catch (HyphenateException e) {
                             e.printStackTrace();
-                            ToastUtils.showShort("添加失败");
                             Log.e("添加好友失败",""+e.getErrorCode()+"|"+e.getDescription());
                         }
                         break;
                     case R.id.bn_refuse:
                         try {
                             EMClient.getInstance().contactManager().declineInvitation(username);
-                            ToastUtils.showShort("拒绝成功");
                         } catch (HyphenateException e) {
                             e.printStackTrace();
-                            ToastUtils.showShort("拒绝失败");
                             Log.e("拒绝好友失败",""+e.getErrorCode()+"|"+e.getDescription());
                         }
                         break;
@@ -334,4 +329,6 @@ public class MainActivity extends BaseActivity {
         //显示
         requestDialog.show();
     }
+
+
 }

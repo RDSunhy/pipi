@@ -81,7 +81,6 @@ public class MineFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()){
             case R.id.tv_msg:
-
                 break;
             case R.id.tv_add_friend:
                 AddFriend dialog = new AddFriend.Builder(getContext()).create();
