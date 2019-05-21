@@ -1,44 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="30px"
-    android:background="#fff"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="#fff">
 
-    <ImageView
-        android:id="@+id/iv_user_icon"
-        android:layout_margin="15px"
-        android:layout_width="150px"
-        android:layout_height="150px"
-        android:background="@mipmap/img_friend_head"/>
-
-    <LinearLayout
+    <com.daimajia.swipe.SwipeLayout
+        android:id="@+id/sl_item"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="30px"
-        android:gravity="center_vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_user_name"
-            android:text="超级扎心的视频"
-            android:textColor="#000"
-            android:textSize="40px"
+        <!--侧滑按钮-->
+        <LinearLayout
+            android:id="@+id/ll_delete"
+            android:layout_width="200px"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tv_delete"
+                android:layout_width="200px"
+                android:layout_height="match_parent"
+                android:textColor="#fff"
+                android:background="#f70f02"
+                android:gravity="center"
+                android:text="删除" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/tv_user_msg"
-            android:text="最新一条消息"
-            android:textColor="#000"
-            android:textSize="36px"
-            android:layout_marginTop="30px"
-            android:layout_width="500px"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            android:singleLine="true"/>
+            <ImageView
+                android:id="@+id/iv_user_icon"
+                android:layout_width="150px"
+                android:layout_height="150px"
+                android:layout_margin="15px"
+                android:background="@mipmap/img_friend_head" />
 
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30px"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="超级扎心的视频"
+                    android:textColor="#000"
+                    android:textSize="40px" />
+
+                <TextView
+                    android:id="@+id/tv_user_msg"
+                    android:layout_width="500px"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30px"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#000"
+                    android:textSize="36px" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.daimajia.swipe.SwipeLayout>
+
 </LinearLayout>

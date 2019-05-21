@@ -1,31 +1,23 @@
 package com.study.shy.pipi.ui.mainfragment;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
-import com.hyphenate.EMContactListener;
-import com.hyphenate.chat.EMClient;
 import com.study.shy.pipi.R;
 import com.study.shy.pipi.base.BaseFragment;
 import com.study.shy.pipi.bean.event.UserBean;
-import com.study.shy.pipi.ui.view.AddFriend;
+import com.study.shy.pipi.ui.view.FriendApply;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.Unbinder;
 
 public class MineFragment extends BaseFragment {
 
@@ -83,8 +75,8 @@ public class MineFragment extends BaseFragment {
             case R.id.tv_msg:
                 break;
             case R.id.tv_add_friend:
-                AddFriend dialog = new AddFriend.Builder(getContext()).create();
-                dialog.show();
+                FriendApply friendApply = new FriendApply(getContext());
+                friendApply.show();
                 break;
         }
     }
