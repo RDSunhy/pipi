@@ -1,8 +1,8 @@
 # pipi
-# 接口通过Fiddler爬取 爬取自开眼APP 没有任何商用途径 纯粹自己模仿学习
-# 接口都在代码中 （ServiceApi中）
+### 接口通过Fiddler爬取 爬取自开眼APP 没有任何商用途径 纯粹自己模仿学习
+### 接口都在代码中 （ServiceApi中）
 
-# 自己的收获
+### 自己的收获
   1.结合饺子播放器实现视频播放功能,Glide图片加载  
   2.Recyclerview实现下拉刷新功能  
   3.retrofit+rxjava  
