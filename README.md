@@ -10,3 +10,11 @@
   9.autolayout屏幕适配  
   10.学会制作.9.png图片  
   11.RxPermissions动态申请权限  
+ ![image](https://github.com/hao896259037/pipi/blob/master/app/src/main/res/show/1.jpg)
+ ![image](https://github.com/hao896259037/pipi/blob/master/app/src/main/res/show/2.jpg)
+ ![image](https://github.com/hao896259037/pipi/blob/master/app/src/main/res/show/3.jpg)
+ ![image](https://github.com/hao896259037/pipi/blob/master/app/src/main/res/show/4.jpg)
+ ![image](https://github.com/hao896259037/pipi/blob/master/app/src/main/res/show/5.jpg)
+ ![image](https://github.com/hao896259037/pipi/blob/master/app/src/main/res/show/6.jpg)
+ ![image](https://github.com/hao896259037/pipi/blob/master/app/src/main/res/show/7.jpg)
+ ![image](https://github.com/hao896259037/pipi/blob/master/app/src/main/res/show/8.jpg)
