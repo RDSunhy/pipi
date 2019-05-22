@@ -15,7 +15,8 @@
 10.实现了1v1视频聊天功能，全局接听    
 11.autolayout屏幕适配  
 12.学会制作.9.png图片  
-13.RxPermissions动态申请权限    
+13.RxPermissions动态申请权限  
+14.好友列表侧滑删除  
 # 效果图 在下面 有点大 以后慢慢修改 哈哈
  ![image](https://github.com/hao896259037/pipi/blob/master/app/src/main/res/show/1.jpg)
  ![image](https://github.com/hao896259037/pipi/blob/master/app/src/main/res/show/2.jpg)
