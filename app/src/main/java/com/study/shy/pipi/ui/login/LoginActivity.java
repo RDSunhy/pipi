@@ -1,6 +1,8 @@
 package com.study.shy.pipi.ui.login;
 
+import android.Manifest;
 import android.content.Intent;
+import android.graphics.LinearGradient;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +16,7 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMChatManager;
 import com.hyphenate.chat.EMClient;
+import com.hyphenate.exceptions.EMServiceNotReadyException;
 import com.hyphenate.exceptions.HyphenateException;
 import com.mob.MobSDK;
 import com.mob.imsdk.MobIM;
@@ -22,10 +25,13 @@ import com.study.shy.pipi.base.BaseActivity;
 import com.study.shy.pipi.bean.SaveResult;
 import com.study.shy.pipi.bean.event.UserBean;
 import com.study.shy.pipi.http.HttpHelper;
+import com.study.shy.pipi.ui.chat.ChatActivity;
+import com.study.shy.pipi.ui.chat.VideoActivity;
 import com.study.shy.pipi.ui.main.MainActivity;
 import com.study.shy.pipi.util.DBUtils;
 import com.study.shy.pipi.util.EncodeUtils;
 import com.study.shy.pipi.util.GsonUtils;
+import com.tbruyelle.rxpermissions.RxPermissions;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -44,6 +50,7 @@ import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.wechat.friends.Wechat;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 public class LoginActivity extends BaseActivity {
@@ -145,7 +152,7 @@ public class LoginActivity extends BaseActivity {
                 platform = ShareSDK.getPlatform(QQ.NAME);
                 break;
         }
-        ShareSDK.setActivity(LoginActivity.this);//抖音登录适配安卓9.0
+        //ShareSDK.setActivity(LoginActivity.this);//抖音登录适配安卓9.0
         //回调信息，可以在这里获取基本的授权返回的信息，但是注意如果做提示和UI操作要传到主线程handler里去执行
         platform.setPlatformActionListener(new PlatformActionListener() {
 
@@ -245,10 +252,22 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void loginSuccess(String account,String name,String icon){
-        EventBus.getDefault().postSticky(new UserBean(account,name,icon));
-        SPUtils.getInstance("USER").put("user",account);
-        dismissLoading();
-        Intent i = new Intent(LoginActivity.this,MainActivity.class);
-        startActivity(i);
+        RxPermissions.getInstance(LoginActivity.this)
+                .request(Manifest.permission.CAMERA)
+                .subscribe(new Action1<Boolean>() {
+                    @Override
+                    public void call(Boolean aBoolean) {
+                        if(aBoolean){
+                            EventBus.getDefault().postSticky(new UserBean(account,name,icon));
+                            SPUtils.getInstance("USER").put("user",account);
+                            dismissLoading();
+                            Intent i = new Intent(LoginActivity.this,MainActivity.class);
+                            startActivity(i);
+                        }else {
+                            ToastUtils.showShort("请赋予相机权限！");
+                        }
+                    }
+                });
+
     }
 }

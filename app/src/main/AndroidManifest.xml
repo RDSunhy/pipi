@@ -92,6 +92,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.chat.ChatActivity"></activity>
+        <activity android:name=".ui.chat.VideoActivity"></activity>
+
     </application>
 
 </manifest>

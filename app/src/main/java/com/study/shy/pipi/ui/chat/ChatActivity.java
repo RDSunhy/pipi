@@ -1,5 +1,6 @@
 package com.study.shy.pipi.ui.chat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,8 +15,10 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMConversation;
 import com.hyphenate.chat.EMMessage;
+import com.hyphenate.exceptions.EMServiceNotReadyException;
 import com.study.shy.pipi.R;
 import com.study.shy.pipi.base.BaseActivity;
+import com.tbruyelle.rxpermissions.RxPermissions;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -27,6 +30,7 @@ import java.util.List;
 import javax.security.auth.login.LoginException;
 
 import butterknife.BindView;
+import rx.functions.Action1;
 
 public class ChatActivity extends BaseActivity {
 
@@ -38,6 +42,8 @@ public class ChatActivity extends BaseActivity {
     EditText etMsg;
     @BindView(R.id.bn_send)
     Button bnSend;
+    @BindView(R.id.bn_video_call)
+    Button bnVideoCall;
 
     String msg;
     String username;
@@ -75,6 +81,33 @@ public class ChatActivity extends BaseActivity {
                 }
             }
         });
+        bnVideoCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RxPermissions.getInstance(ChatActivity.this)
+                        .request(Manifest.permission.CAMERA)
+                        .subscribe(new Action1<Boolean>() {
+                            @Override
+                            public void call(Boolean aBoolean) {
+                                if(aBoolean){
+                                    try {//单参数
+                                        EMClient.getInstance().callManager().makeVideoCall(username);
+                                        Intent intent = new Intent(ChatActivity.this,VideoActivity.class);
+                                        intent.putExtra("type","1");
+                                        startActivity(intent);
+                                    } catch (EMServiceNotReadyException e) {
+                                        // TODO Auto-generated catch block
+                                        ToastUtils.showShort("拨打失败！");
+                                        Log.e("拨打失败",e.getErrorCode()+"|"+e.getDescription());
+                                    }
+                                }else {
+                                    ToastUtils.showShort("请赋予相机权限！");
+                                }
+                            }
+                        });
+            }
+        });
+
     }
 
     @Override

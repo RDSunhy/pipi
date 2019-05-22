@@ -1,13 +1,17 @@
 package com.study.shy.pipi.base;
 
 import android.app.Application;
+import android.content.IntentFilter;
 import android.support.multidex.MultiDex;
 
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.mob.MobSDK;
+import com.study.shy.pipi.receive.CallReceiver;
 
 public class BaseApplication extends Application {
+
+    CallReceiver callReceiver;
 
     @Override
     public void onCreate() {
@@ -27,5 +31,15 @@ public class BaseApplication extends Application {
         EMClient.getInstance().init(getApplicationContext(), options);
         //在做打包混淆时，关闭debug模式，避免消耗不必要的资源
         EMClient.getInstance().setDebugMode(true);
+
+        // 设置通话广播监听器
+        IntentFilter callFilter = new IntentFilter(EMClient.getInstance()
+                .callManager()
+                .getIncomingCallBroadcastAction());
+        if (callReceiver == null) {
+            callReceiver = new CallReceiver();
+        }
+        //注册通话广播接收者
+        getApplicationContext().registerReceiver(callReceiver, callFilter);
     }
 }
