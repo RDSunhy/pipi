@@ -1,4 +1,4 @@
-package com.study.shy.pipi.ui.view;
+package com.study.shy.pipi.ui.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -19,7 +19,7 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.exceptions.HyphenateException;
 import com.study.shy.pipi.R;
 
-public class FriendApply extends Dialog {
+public class FriendApplyDialog extends Dialog {
 
     //在构造方法里提前加载了样式
     private Context context;//上下文
@@ -27,7 +27,7 @@ public class FriendApply extends Dialog {
 
     EditText etApplyUser,etApplyReason;
 
-    public FriendApply(Context context){
+    public FriendApplyDialog(Context context){
         super(context,R.style.AddFriend);//加载dialog的样式
         this.context = context;
         this.layoutResID = R.layout.dialog_friend_apply;

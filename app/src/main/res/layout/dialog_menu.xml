@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eeeeee">
+
+    <TextView
+    android:id="@+id/tv_op1"
+    android:textSize="50px"
+    android:gravity="center"
+    android:text="拍照"
+    android:layout_width="match_parent"
+    android:layout_height="100px" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#fa2354"
+        android:layout_margin="15px"></View>
+
+    <TextView
+        android:id="@+id/tv_op2"
+        android:textSize="50px"
+        android:gravity="center"
+        android:text="从相册选择"
+        android:layout_width="match_parent"
+        android:layout_height="100px" />
+
+    <TextView
+        android:id="@+id/tv_op3"
+        android:textSize="50px"
+        android:gravity="center"
+        android:text="取消"
+        android:layout_marginTop="50px"
+        android:layout_width="match_parent"
+        android:layout_height="100px" />
+
+</LinearLayout>

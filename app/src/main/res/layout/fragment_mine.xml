@@ -1,101 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoLinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#eeeeee"
     android:orientation="vertical">
-
     <com.zhy.autolayout.AutoLinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="20px">
-
-        <ImageView
-            android:id="@+id/iv_user_icon"
-            android:layout_width="200px"
-            android:layout_height="200px" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <com.zhy.autolayout.AutoLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="20px">
+            android:orientation="horizontal"
+            android:padding="20px"
+            android:background="#fff">
+
+            <ImageView
+                android:id="@+id/iv_user_icon"
+                android:layout_width="200px"
+                android:layout_height="200px" />
 
             <com.zhy.autolayout.AutoLinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
+                android:orientation="vertical"
+                android:layout_margin="20px">
 
-                <TextView
-                    android:id="@+id/tv_username"
-                    android:text="xxx"
-                    android:textSize="50px"
-                    android:layout_width="250px"
-                    android:layout_height="wrap_content" />
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
 
-                <TextView
-                    android:layout_width="500px"
-                    android:layout_height="60px"
-                    android:gravity="center"
-                    android:paddingBottom="10px"
-                    android:text="从你QQ获取的不让改！"
-                    android:textColor="#fff"
-                    android:background="@mipmap/img_hint_bg"/>
+                    <TextView
+                        android:id="@+id/tv_username"
+                        android:text=""
+                        android:textSize="50px"
+                        android:layout_width="250px"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginLeft="30px"
+                        android:textColor="#fff"
+                        android:background="@mipmap/img_mine_left"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
+
+                <com.zhy.autolayout.AutoLinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30px"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_account"
+                        android:text="ID："
+                        android:textSize="30px"
+                        android:layout_width="220px"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="60px"
+                        android:gravity="center"
+                        android:paddingBottom="10px"
+                        android:text="通过此ID添加好友"
+                        android:textColor="#fff"
+                        android:background="@mipmap/img_hint_bg"/>
+
+                </com.zhy.autolayout.AutoLinearLayout>
 
             </com.zhy.autolayout.AutoLinearLayout>
-
-            <com.zhy.autolayout.AutoLinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:orientation="horizontal"
-                android:gravity="center_horizontal">
-
-                <TextView
-                    android:id="@+id/tv_account"
-                    android:text="ID：22222222"
-                    android:textSize="30px"
-                    android:layout_width="220px"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="400px"
-                    android:layout_height="60px"
-                    android:gravity="center"
-                    android:paddingBottom="10px"
-                    android:text="ID别TM弄丢了！"
-                    android:textColor="#fff"
-                    android:background="@mipmap/img_hint_bg"/>
-
-            </com.zhy.autolayout.AutoLinearLayout>
-
         </com.zhy.autolayout.AutoLinearLayout>
-    </com.zhy.autolayout.AutoLinearLayout>
 
-    <com.zhy.autolayout.AutoLinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:scaleType="centerCrop"
+            android:background="@mipmap/img_banner1"/>
 
         <TextView
-            android:id="@+id/tv_msg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableTop="@mipmap/img_hint"
-            android:gravity="center"
-            android:layout_margin="30px"
-            android:text="提醒" />
+            android:id="@+id/tv_collect"
+            style="@style/set_tab_item"
+            android:layout_marginTop="20px"
+            android:drawableLeft="@mipmap/img_star"
+            android:text="我的收藏"/>
+
         <TextView
-            android:id="@+id/tv_add_friend"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableTop="@mipmap/img_add_friend"
-            android:gravity="center"
-            android:layout_margin="30px"
-            android:text="加好友" />
+            android:id="@+id/tv_quit_login"
+            style="@style/set_tab_item"
+            android:layout_marginTop="20px"
+            android:drawableLeft="@mipmap/img_quit_login"
+            android:text="切换账号"/>
+
+        <TextView
+            android:id="@+id/tv_quit"
+            style="@style/set_tab_item"
+            android:layout_marginTop="6px"
+            android:drawableLeft="@mipmap/img_quit"
+            android:text="退出皮皮"/>
+
+        <TextView
+            android:id="@+id/tv_about"
+            style="@style/set_tab_item"
+            android:layout_marginTop="20px"
+            android:drawableLeft="@mipmap/img_about"
+            android:text="关于软件"/>
+
+        <TextView
+            android:id="@+id/tv_author"
+            style="@style/set_tab_item"
+            android:layout_marginTop="6px"
+            android:drawableLeft="@mipmap/img_author"
+            android:text="作者信息"/>
 
     </com.zhy.autolayout.AutoLinearLayout>
-
-</com.zhy.autolayout.AutoLinearLayout>
+</ScrollView>

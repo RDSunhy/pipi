@@ -79,7 +79,7 @@
             android:name=".ui.main.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.category.CategoryActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -91,9 +91,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.chat.ChatActivity"></activity>
-        <activity android:name=".ui.chat.VideoActivity"></activity>
-
+        <activity android:name=".ui.chat.ChatActivity" />
+        <activity android:name=".ui.chat.VideoActivity" />
+        <activity android:name=".ui.about.AboutActivity"></activity>
     </application>
 
 </manifest>

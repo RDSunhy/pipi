@@ -5,17 +5,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100px"
-        android:background="#eeeeee"
-        android:gravity="center">
+        android:background="#eeeeee">
         <TextView
             android:text="好友列表"
             android:textColor="#000"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:id="@+id/iv_add_friend"
+            android:layout_width="60px"
+            android:layout_height="60px"
+            android:layout_marginRight="20px"
+            android:background="@mipmap/img_add_friend2"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_friend"

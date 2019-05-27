@@ -13,7 +13,7 @@
         android:background="#ff93b0"
         android:gravity="center">
         <TextView
-            android:text="好友申请"
+            android:text="修改备注"
             android:textColor="#fff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -27,42 +27,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_margin="20px"
-            >
-
-            <TextView
-                android:layout_width="250px"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:layout_weight="1"
-                android:text="对方ID："/>
-            <EditText
-                android:id="@+id/et_apply_user"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:text=""/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="20px"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="250px"
                 android:layout_height="wrap_content"
                 android:gravity="right"
-                android:layout_weight="1"
-                android:text="添加理由："/>
+                android:text="备注名："/>
             <EditText
-                android:id="@+id/et_apply_reason"
+                android:id="@+id/et_remark"
                 android:layout_weight="3"
+                android:background="@drawable/et_bg_round"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="60px"
+                android:paddingLeft="30px"
+                android:paddingRight="30px"
+                android:gravity="center_vertical"
                 android:text=""/>
 
         </LinearLayout>
@@ -76,14 +58,24 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/bn_confirm"
+            android:id="@+id/bn_ok"
             android:layout_width="wrap_content"
             android:layout_height="90px"
             android:layout_weight="1"
             android:background="#ff93b0"
             android:layout_margin="10px"
             android:textColor="#fff"
-            android:text="确认添加"/>
+            android:text="确认"/>
+
+        <Button
+            android:id="@+id/bn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="90px"
+            android:layout_weight="1"
+            android:background="#afafaf"
+            android:layout_margin="10px"
+            android:textColor="#fff"
+            android:text="取消"/>
 
     </LinearLayout>
 

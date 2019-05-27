@@ -1,8 +1,11 @@
 package com.study.shy.pipi.ui.login;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.LinearGradient;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,6 +25,7 @@ import com.mob.MobSDK;
 import com.mob.imsdk.MobIM;
 import com.study.shy.pipi.R;
 import com.study.shy.pipi.base.BaseActivity;
+import com.study.shy.pipi.base.Constants;
 import com.study.shy.pipi.bean.SaveResult;
 import com.study.shy.pipi.bean.event.UserBean;
 import com.study.shy.pipi.http.HttpHelper;
@@ -246,14 +250,15 @@ public class LoginActivity extends BaseActivity {
         platform.showUser(null);
         //authorize
         //qq.authorize();//要功能不要数据，在监听oncomplete中不会返回用户数据
-
         //想要移除授权状态，在想移除的地方执行下面的方法即可
         //weibo.removeAccount(true);
     }
 
     public void loginSuccess(String account,String name,String icon){
+        SPUtils.getInstance(Constants.FILENAME).put(Constants.USER_ACCOUNT,account);
+        SPUtils.getInstance(Constants.FILENAME).put(Constants.USER_NAME,name);
         RxPermissions.getInstance(LoginActivity.this)
-                .request(Manifest.permission.CAMERA)
+                .request(Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .subscribe(new Action1<Boolean>() {
                     @Override
                     public void call(Boolean aBoolean) {
@@ -264,10 +269,12 @@ public class LoginActivity extends BaseActivity {
                             Intent i = new Intent(LoginActivity.this,MainActivity.class);
                             startActivity(i);
                         }else {
-                            ToastUtils.showShort("请赋予相机权限！");
+                            ToastUtils.showShort("请赋予对应的权限！");
                         }
                     }
                 });
 
     }
+
+
 }

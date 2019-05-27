@@ -1,12 +1,9 @@
-package com.study.shy.pipi.ui.view;
+package com.study.shy.pipi.ui.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -16,21 +13,23 @@ import android.widget.TextView;
 
 import com.study.shy.pipi.R;
 
-public class FriendResult extends Dialog {
+public class FriendRequestDialog extends Dialog implements View.OnClickListener {
 
     //在构造方法里提前加载了样式
     private Context context;//上下文
     private int layoutResID;//布局文件id
+    private int[] listenedItem;//监听的控件id
 
-    String user,content;
+    String user,reason;
     TextView tvUser,tvReason;
 
-    public FriendResult(Context context, String user, String content){
+    public FriendRequestDialog(Context context, String user, String reason, int layoutResID, int[] listenedItem){
         super(context,R.style.AddFriend);//加载dialog的样式
         this.context = context;
-        this.layoutResID = R.layout.dialog_result;
+        this.layoutResID = layoutResID;
+        this.listenedItem = listenedItem;
         this.user = user;
-        this.content = content;
+        this.reason = reason;
     }
 
     @Override
@@ -42,18 +41,11 @@ public class FriendResult extends Dialog {
         //dialogWindow.setWindowAnimations();设置动画效果
         setContentView(layoutResID);
 
-        tvUser = findViewById(R.id.tv_username);
-        tvReason = findViewById(R.id.tv_content);
+        tvUser = findViewById(R.id.tv_requset_user);
+        tvReason = findViewById(R.id.tv_requset_reason);
 
         tvUser.setText(""+user);
-        tvReason.setText(""+content);
-
-        findViewById(R.id.bn_ok).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
+        tvReason.setText(""+reason);
 
         WindowManager windowManager = ((Activity)context).getWindowManager();
         Display display = windowManager.getDefaultDisplay();
@@ -61,7 +53,26 @@ public class FriendResult extends Dialog {
         lp.width = display.getWidth()*2/3;// 设置dialog宽度为屏幕的4/5
         getWindow().setAttributes(lp);
         setCanceledOnTouchOutside(true);//点击外部Dialog消失
+        //遍历控件id添加点击注册
+        for(int id:listenedItem){
+            findViewById(id).setOnClickListener(this);
+        }
+    }
 
+    private OnCenterItemClickListener listener;
+    public interface OnCenterItemClickListener {
+        void OnCenterItemClick(FriendRequestDialog dialog, View view);
+    }
+    //很明显我们要在这里面写个接口，然后添加一个方法
+    public void setOnCenterItemClickListener(OnCenterItemClickListener listener) {
+        this.listener = listener;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        dismiss();//注意：我在这里加了这句话，表示只要按任何一个控件的id,弹窗都会消失，不管是确定还是取消。
+        listener.OnCenterItemClick(this,v);
     }
 
 }

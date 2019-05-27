@@ -1,7 +1,6 @@
 package com.study.shy.pipi.ui.main;
 
 import android.os.Handler;
-import android.os.Looper;
 import android.os.Message;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -22,8 +21,8 @@ import com.study.shy.pipi.ui.mainfragment.FindFragment;
 import com.study.shy.pipi.ui.mainfragment.MainFragment;
 import com.study.shy.pipi.ui.mainfragment.MessageFragment;
 import com.study.shy.pipi.ui.mainfragment.MineFragment;
-import com.study.shy.pipi.ui.view.FriendResult;
-import com.study.shy.pipi.ui.view.FriendRequest;
+import com.study.shy.pipi.ui.dialog.FriendResultDialog;
+import com.study.shy.pipi.ui.dialog.FriendRequestDialog;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -321,13 +320,13 @@ public class MainActivity extends BaseActivity {
     }
 
     public void showFriendRequest(String username,String reason){
-        FriendRequest requestDialog;
+        FriendRequestDialog requestDialog;
         //实例化自定义的dialog
-        requestDialog = new FriendRequest(MainActivity.this,username,reason,R.layout.dialog_friend_request,new int[]{R.id.bn_agree,R.id.bn_refuse});
+        requestDialog = new FriendRequestDialog(MainActivity.this,username,reason,R.layout.dialog_friend_request,new int[]{R.id.bn_agree,R.id.bn_refuse});
         //绑定点击事件
-        requestDialog.setOnCenterItemClickListener(new FriendRequest.OnCenterItemClickListener() {
+        requestDialog.setOnCenterItemClickListener(new FriendRequestDialog.OnCenterItemClickListener() {
             @Override
-            public void OnCenterItemClick(FriendRequest dialog, View view) {
+            public void OnCenterItemClick(FriendRequestDialog dialog, View view) {
                 switch (view.getId()){
                     case R.id.bn_agree:
                         try {
@@ -354,9 +353,9 @@ public class MainActivity extends BaseActivity {
     }
 
     public void showResultDialog(String username,String content){
-        FriendResult friendResult;
+        FriendResultDialog friendResult;
         //实例化自定义的dialog
-        friendResult = new FriendResult(MainActivity.this,username,content);
+        friendResult = new FriendResultDialog(MainActivity.this,username,content);
         //显示
         friendResult.show();
     }

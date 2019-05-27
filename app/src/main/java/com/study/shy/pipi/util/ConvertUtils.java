@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.util.Base64;
 import android.view.View;
 
 import com.blankj.utilcode.constant.MemoryConstants;
@@ -631,5 +632,28 @@ public final class ConvertUtils {
             }
         }
         return true;
+    }
+
+    /**
+     * bitmap转string
+     * @param bitmap
+     * @return
+     */
+    public static String bitmapToString(Bitmap bitmap) {
+        ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 80, byteArrayOutputStream);
+        byte[] byteArray=byteArrayOutputStream.toByteArray();
+        return new String(Base64.encodeToString(byteArray, Base64.DEFAULT));
+    }
+
+    /**
+     * string转bitmap
+     * @param str
+     * @return
+     */
+    public static Bitmap stringToBitmap(String str){
+        byte[] byteArray= Base64.decode(str, Base64.DEFAULT);
+        ByteArrayInputStream byteArrayInputStream=new ByteArrayInputStream(byteArray);
+        return BitmapFactory.decodeStream(byteArrayInputStream);
     }
 }
