@@ -22,6 +22,8 @@ import com.study.shy.pipi.base.BaseFragment;
 import com.study.shy.pipi.base.Constants;
 import com.study.shy.pipi.bean.event.SetIconBean;
 import com.study.shy.pipi.bean.event.UserBean;
+import com.study.shy.pipi.ui.about.AboutActivity;
+import com.study.shy.pipi.ui.about.AuthorActivity;
 import com.study.shy.pipi.ui.dialog.FriendApplyDialog;
 import com.study.shy.pipi.ui.dialog.MenuDialog;
 import com.study.shy.pipi.ui.login.LoginActivity;
@@ -144,8 +146,12 @@ public class MineFragment extends BaseFragment {
             case R.id.tv_collect:
                 break;
             case R.id.tv_about:
+                Intent about = new Intent(getContext(),AboutActivity.class);
+                getContext().startActivity(about);
                 break;
             case R.id.tv_author:
+                Intent author = new Intent(getContext(),AuthorActivity.class);
+                getContext().startActivity(author);
                 break;
         }
     }

@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">高仿皮皮搞笑</string>
+    <string name="library1">1.鸿阳大神的AutoLayout（简单效果好的适配方案）</string>
+    <string name="library2">2.Butterknife黄油刀（减少代码量）</string>
+    <string name="library3">3.AndroidUtilCode工具类（可以自己修改）</string>
+    <string name="library4">4.Retrofit2网络请求</string>
+    <string name="library5">5.Rxjava2（结合Retrofit真的很nice）</string>
+    <string name="library6">6.饺子播放器（真的很好用）</string>
+    <string name="library7">7.Glide大名鼎鼎的图片加载</string>
+    <string name="library8">8.EventBus（解决了各种疑难杂症）</string>
+    <string name="library9">9.AVLoadingIndicatorView非常漂亮的加载中动画</string>
+    <string name="library10">10.SwipeLayout很容易就实现了View侧滑</string>
+    <string name="library11">11.RxPermissions动态权限申请</string>
+    <string name="library12">12.BRVAH很好用的adapter后来才知道还没来得及用</string>
+    <string name="library13">13.ZxingLite比Zxing更容易实现自定义</string>
+    <string name="ps_login">登录采用了QQ登录，微信由于需要300块钱没舍得哈哈，微信登录是有问题的</string>
+    <string name="ps_share">分享是基于ShareSDK（Mob官网），当然也是仅支持QQ，理由同上</string>
+    <string name="ps_im">IM即时通讯功能全部基于环信SDK免费版，官方说明非常清楚，使用也非常简单</string>
 </resources>

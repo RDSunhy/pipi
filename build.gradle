@@ -11,6 +11,9 @@ buildscript {
         maven {
             url "https://raw.githubusercontent.com/HyphenateInc/Hyphenate-SDK-Android/master/repository"
         }
+        maven {
+            url 'https://dl.bintray.com/jenly/maven'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'

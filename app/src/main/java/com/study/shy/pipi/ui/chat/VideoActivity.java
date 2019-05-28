@@ -1,7 +1,6 @@
 package com.study.shy.pipi.ui.chat;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +15,6 @@ import com.study.shy.pipi.R;
 import com.study.shy.pipi.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class VideoActivity extends BaseActivity {
@@ -32,7 +30,7 @@ public class VideoActivity extends BaseActivity {
 
     @Override
     public int intiLayout() {
-        return R.layout.activity_su;
+        return R.layout.activity_video;
     }
 
     @Override

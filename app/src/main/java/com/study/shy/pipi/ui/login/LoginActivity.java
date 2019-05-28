@@ -135,6 +135,8 @@ public class LoginActivity extends BaseActivity {
                         ToastUtils.showShort("登录聊天服务器成功！");
                         SPUtils.getInstance("USER").put("user","admin");
                         dismissLoading();
+                        SPUtils.getInstance(Constants.FILENAME).put(Constants.USER_ACCOUNT,"admin");
+                        SPUtils.getInstance(Constants.FILENAME).put(Constants.USER_NAME,"admin");
                         Intent i = new Intent(LoginActivity.this,MainActivity.class);
                         startActivity(i);
                     }

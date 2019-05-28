@@ -1,5 +1,6 @@
 package com.study.shy.pipi.ui.main;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.FragmentManager;
@@ -10,11 +11,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.blankj.utilcode.util.ToastUtils;
 import com.hyphenate.EMContactListener;
 import com.hyphenate.EMMessageListener;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMMessage;
 import com.hyphenate.exceptions.HyphenateException;
+import com.king.zxing.CaptureActivity;
 import com.study.shy.pipi.R;
 import com.study.shy.pipi.base.BaseActivity;
 import com.study.shy.pipi.ui.mainfragment.FindFragment;
@@ -33,6 +36,8 @@ import butterknife.OnClick;
 import cn.jzvd.Jzvd;
 
 public class MainActivity extends BaseActivity {
+
+    private int RESULT_SCAN = 1;
 
     @BindView(R.id.fragment_content)
     FrameLayout fragmentContent;
@@ -358,6 +363,27 @@ public class MainActivity extends BaseActivity {
         friendResult = new FriendResultDialog(MainActivity.this,username,content);
         //显示
         friendResult.show();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.e("进入onActivityResult","onActivityResult");
+        if(requestCode == RESULT_SCAN && resultCode == RESULT_OK){
+            Log.e("进入resultif语句","进入resultif语句");
+            String result = data.getStringExtra(CaptureActivity.KEY_RESULT);
+            if (result.equals("admin")||result.length()==8){
+                try {
+                    EMClient.getInstance().contactManager().addContact(result, "对方通过扫一扫方式请求添加您为好友");
+                } catch (HyphenateException e) {
+                    e.printStackTrace();
+                    ToastUtils.showShort("添加好友失败！");
+                    Log.e("添加好友失败",""+e.getDescription()+"|"+e.getErrorCode());
+                }
+            }else {
+                ToastUtils.showShort("您扫描的码不是ID哦");
+            }
+        }
     }
 
 }
