@@ -184,11 +184,11 @@ public class CategoryActivity extends BaseActivity {
     public void onViewClicked() {
         if (bnSubscibe.getSelect()){
             SPUtils.getInstance("Subscibe").put(categoryName,true);
-            EventBus.getDefault().post(new SubBean(categoryName,categoryId,bnSubscibe.getSelect()));
+            //EventBus.getDefault().post(new SubBean(categoryName,categoryId,bnSubscibe.getSelect()));
 
         }else {
             SPUtils.getInstance("Subscibe").put(categoryName,false);
-            EventBus.getDefault().post(new SubBean(categoryName,categoryId,bnSubscibe.getSelect()));
+            //EventBus.getDefault().post(new SubBean(categoryName,categoryId,bnSubscibe.getSelect()));
         }
     }
 

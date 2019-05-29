@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">高仿皮皮搞笑</string>
+    <string name="app_name">PiPi</string>
     <string name="library1">1.鸿阳大神的AutoLayout（简单效果好的适配方案）</string>
     <string name="library2">2.Butterknife黄油刀（减少代码量）</string>
     <string name="library3">3.AndroidUtilCode工具类（可以自己修改）</string>

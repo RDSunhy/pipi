@@ -8,7 +8,12 @@ import android.support.multidex.MultiDex;
 import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.mob.MobSDK;
+import com.study.shy.pipi.R;
 import com.study.shy.pipi.receive.CallReceiver;
+import com.study.shy.pipi.ui.login.LoginActivity;
+
+import cat.ereza.customactivityoncrash.CustomActivityOnCrash;
+import cat.ereza.customactivityoncrash.config.CaocConfig;
 
 public class BaseApplication extends Application {
 
@@ -49,5 +54,19 @@ public class BaseApplication extends Application {
         }
         //注册通话广播接收者
         getApplicationContext().registerReceiver(callReceiver, callFilter);
+        CustomActivityOnCrash.install(this);
+        /*CaocConfig.Builder.create()
+                .backgroundMode(CaocConfig.BACKGROUND_MODE_SILENT) //default: CaocConfig.BACKGROUND_MODE_SHOW_CUSTOM
+                .enabled(false) //default: true
+                //.showErrorDetails(false) //default: true
+                //.showRestartButton(false) //default: true
+                //.logErrorOnRestart(false) //default: true
+                //.trackActivities(true) //default: false
+                .minTimeBetweenCrashesMs(2000) //default: 3000
+                .errorDrawable(R.mipmap.mipush_notification) //default: bug image
+                .restartActivity(LoginActivity.class) //default: null (your app's launch activity)
+                //.errorActivity(YourCustomErrorActivity.class) //default: null (default error activity)
+                //.eventListener(new YourCustomEventListener()) //default: null
+                .apply();*/
     }
 }

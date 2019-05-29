@@ -30,6 +30,13 @@ android {
     }
     //use legacy for android 6.0
     useLibrary 'org.apache.http.legacy'
+
+    android.applicationVariants.all {
+        variant ->variant.outputs.all {
+            outputFileName = "PiPi.apk"
+        }
+    }
+
 }
 
 MobSDK {
@@ -113,5 +120,7 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     //zxinglite
     implementation 'com.king.zxing:zxing-lite:1.1.1'
+    //崩溃ANR处理
+    implementation 'cat.ereza:customactivityoncrash:2.2.0'
 
 }
